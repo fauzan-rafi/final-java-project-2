@@ -54,6 +54,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         addActionToMenuLabels();
         
         dbModel.showRequest(table_request);
+        dbModel.showNewRequest(table_newRequest);
     }
     
     public void setLabelBackground(JLabel label){
@@ -107,7 +108,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                              case "Request":
                                  showPanel(jPanel_request);
                                  break;
-                             case "Item":
+                             case "Total Request":
                                  showPanel(jPanel_item);
                                  break;
                              case "Contact":
@@ -183,7 +184,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel_request = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        table_request = new javax.swing.JTable();
+        table_newRequest = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel21 = new javax.swing.JLabel();
@@ -193,6 +194,8 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jPanel_item = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel9 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        table_request = new javax.swing.JTable();
         jPanel_contact = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -493,9 +496,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         );
         jPanel_userLayout.setVerticalGroup(
             jPanel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_userLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 448, Short.MAX_VALUE)
         );
 
         jPanel_request.setBackground(new java.awt.Color(30, 144, 255));
@@ -504,9 +505,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Request");
+        jLabel2.setText("New Request");
 
-        table_request.setModel(new javax.swing.table.DefaultTableModel(
+        table_newRequest.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -520,7 +521,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(table_request);
+        jScrollPane1.setViewportView(table_newRequest);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
@@ -605,7 +606,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                         .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(fld_idTransaksi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(98, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jPanel2.setBackground(new java.awt.Color(255, 118, 0));
@@ -615,21 +616,41 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel9.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel9.setText("Total Request");
 
+        table_request.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(table_request);
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(185, 185, 185)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(173, 173, 173)
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 541, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(356, Short.MAX_VALUE))
+                .addGap(49, 49, 49)
+                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(138, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel_itemLayout = new javax.swing.GroupLayout(jPanel_item);
@@ -725,7 +746,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         int idTransaksi = Integer.parseInt(fld_idTransaksi.getText());
         dbModel.approveReq(idTransaksi);
         fld_idTransaksi.setText("");
-        dbModel.showRequest(table_request);
+        dbModel.showRequest(table_newRequest);
     }//GEN-LAST:event_btn_approveActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
@@ -824,6 +845,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_request;
     private javax.swing.JPanel jPanel_user;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAlamat;
     private javax.swing.JLabel lblAlamat2;
     private javax.swing.JLabel lblEmail;
@@ -834,6 +856,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JLabel lblNoHP2;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblStatus2;
+    private javax.swing.JTable table_newRequest;
     private javax.swing.JTable table_request;
     // End of variables declaration//GEN-END:variables
 }

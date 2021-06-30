@@ -111,7 +111,7 @@ public class DatabaseModel {
                    + "transaksi.tanggal_pinjaman,transaksi.id_transaksi,transaksi.status_pinjaman,transaksi.tanggal_kembali\n" +
                      "FROM transaksi\n" +
                      "INNER JOIN data_barang ON transaksi.id_brg = data_barang.id_brg "
-                   + "JOIN data_user ON transaksi.id_user = data_user.id_user WHERE transaksi.status_pinjaman = 'Pending'; ";
+                   + "JOIN data_user ON transaksi.id_user = data_user.id_user; ";
             DefaultTableModel model = new DefaultTableModel();
             model.addColumn("No");
             model.addColumn("No Transaksi");
@@ -154,7 +154,7 @@ public class DatabaseModel {
                    + "transaksi.tanggal_pinjaman,transaksi.id_transaksi,transaksi.status_pinjaman,transaksi.tanggal_kembali\n" +
                      "FROM transaksi\n" +
                      "INNER JOIN data_barang ON transaksi.id_brg = data_barang.id_brg "
-                   + "JOIN data_user ON transaksi.id_user = data_user.id_user; ";
+                   + "JOIN data_user ON transaksi.id_user = data_user.id_user WHERE transaksi.status_pinjaman = 'Pending'; ";
             DefaultTableModel model = new DefaultTableModel();
             model.addColumn("No");
             model.addColumn("No Transaksi");
