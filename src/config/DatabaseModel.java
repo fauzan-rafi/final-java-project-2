@@ -111,6 +111,49 @@ public class DatabaseModel {
                    + "transaksi.tanggal_pinjaman,transaksi.id_transaksi,transaksi.status_pinjaman,transaksi.tanggal_kembali\n" +
                      "FROM transaksi\n" +
                      "INNER JOIN data_barang ON transaksi.id_brg = data_barang.id_brg "
+                   + "JOIN data_user ON transaksi.id_user = data_user.id_user WHERE transaksi.status_pinjaman = 'Pending'; ";
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("No");
+            model.addColumn("No Transaksi");
+            model.addColumn("Barang");
+            model.addColumn("Pemohon");
+            model.addColumn("Jumlah");
+            model.addColumn("Keperluan");
+            model.addColumn("Tgl pinjam");
+            model.addColumn("Tgl kembali");
+            model.addColumn("Stock");
+            model.addColumn("Status Pinjaman");
+            
+        try {
+            int no=1;
+            java.sql.ResultSet res = this.exec(sql);
+            while(res.next()){
+                model.addRow(new Object[]
+                {
+                 no++,
+                 res.getString("id_transaksi"),
+                 res.getString("nama_brg"),
+                 res.getString("nama_user"),
+                 res.getString("banyak_pinjaman"),
+                 res.getString("keperluan_pinjaman"),
+                 res.getString("tanggal_pinjaman"),
+                 res.getString("tanggal_kembali"),
+                 res.getString("jumlah_brg"),
+                 res.getString("status_pinjaman")
+                });
+            }
+            table.setModel(model);
+        } catch (Exception e) {
+        }
+    }
+    
+    public void showNewRequest(JTable table){
+        String sql = "SELECT data_barang.nama_brg,data_barang.jumlah_brg,"
+                   + "data_user.nama_user,"
+                   + "transaksi.banyak_pinjaman,transaksi.keperluan_pinjaman,"
+                   + "transaksi.tanggal_pinjaman,transaksi.id_transaksi,transaksi.status_pinjaman,transaksi.tanggal_kembali\n" +
+                     "FROM transaksi\n" +
+                     "INNER JOIN data_barang ON transaksi.id_brg = data_barang.id_brg "
                    + "JOIN data_user ON transaksi.id_user = data_user.id_user; ";
             DefaultTableModel model = new DefaultTableModel();
             model.addColumn("No");

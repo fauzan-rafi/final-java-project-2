@@ -143,13 +143,6 @@ public class Dashboard extends javax.swing.JFrame {
         lblNoHP.setText(result[2]);
         lblEmail.setText(result[3]);
         lblAlamat.setText(result[4]);
-        lblJumlahPinjaman.setText(result[5]);
-        if( (result[6]) == null ){
-            lblStatus.setText("Null");
-        }else{
-            lblStatus.setText(result[6]);
-        }
-        
     }
 
 
@@ -437,7 +430,6 @@ public class Dashboard extends javax.swing.JFrame {
 
         lblJumlahPinjaman2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         lblJumlahPinjaman2.setForeground(new java.awt.Color(255, 255, 255));
-        lblJumlahPinjaman2.setText("Pinjaman :");
 
         lblNama.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         lblNama.setForeground(new java.awt.Color(255, 255, 255));
