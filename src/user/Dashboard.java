@@ -59,6 +59,7 @@ public class Dashboard extends javax.swing.JFrame {
         //    call function for show data 
         dbModel.barangTableUser(Jtable_barang);
         this.showUserData();
+        dbModel.showUserRequest(table_userRequest, this.user_id);
         //   to create request transaction
         
     }
@@ -103,10 +104,10 @@ public class Dashboard extends javax.swing.JFrame {
                              case "Users":
                                  showPanel(jPanel_user);
                                  break;
-                             case "Request":
+                             case "New Request":
                                  showPanel(jPanel_request);
                                  break;
-                             case "Item":
+                             case "Request":
                                  showPanel(jPanel_item);
                                  break;
                              case "Contact":
@@ -209,7 +210,10 @@ public class Dashboard extends javax.swing.JFrame {
         tgl_kembali = new com.toedter.calendar.JDateChooser();
         jButton1 = new javax.swing.JButton();
         jPanel_item = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        table_userRequest = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
         jPanel_contact = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
 
@@ -240,13 +244,14 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel_menuItem3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel_menuItem3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_menuItem3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_menuItem3.setText("Request");
+        jLabel_menuItem3.setText("New Request");
         jLabel_menuItem3.setOpaque(true);
 
         jLabel_menuItem4.setBackground(new java.awt.Color(51, 51, 51));
         jLabel_menuItem4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel_menuItem4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_menuItem4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel_menuItem4.setText("Request");
         jLabel_menuItem4.setOpaque(true);
 
         jLabel_menuItem5.setBackground(new java.awt.Color(51, 51, 51));
@@ -685,28 +690,63 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel_requestLayout.setVerticalGroup(
             jPanel_requestLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 459, Short.MAX_VALUE)
         );
 
         jPanel_item.setPreferredSize(new java.awt.Dimension(600, 350));
 
-        jLabel3.setText("Item");
+        jPanel4.setBackground(new java.awt.Color(255, 169, 0));
+
+        table_userRequest.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(table_userRequest);
+
+        jLabel14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel14.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel14.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel14.setText("Total Request");
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 580, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(213, 213, 213))
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel4Layout.createSequentialGroup()
+                .addGap(43, 43, 43)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 131, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(132, 132, 132))
+        );
 
         javax.swing.GroupLayout jPanel_itemLayout = new javax.swing.GroupLayout(jPanel_item);
         jPanel_item.setLayout(jPanel_itemLayout);
         jPanel_itemLayout.setHorizontalGroup(
             jPanel_itemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_itemLayout.createSequentialGroup()
-                .addGap(267, 267, 267)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(151, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel_itemLayout.setVerticalGroup(
             jPanel_itemLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_itemLayout.createSequentialGroup()
-                .addGap(200, 200, 200)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(113, Short.MAX_VALUE))
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         jPanel_contact.setPreferredSize(new java.awt.Dimension(600, 350));
@@ -875,12 +915,12 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
@@ -895,6 +935,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel_contact;
     private javax.swing.JPanel jPanel_dashboard;
     private javax.swing.JPanel jPanel_item;
@@ -902,6 +943,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_request;
     private javax.swing.JPanel jPanel_user;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JLabel lblAlamat;
     private javax.swing.JLabel lblAlamat2;
     private javax.swing.JLabel lblEmail;
@@ -914,6 +956,7 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblNoHP2;
     private javax.swing.JLabel lblStatus;
     private javax.swing.JLabel lblStatus2;
+    private javax.swing.JTable table_userRequest;
     private com.toedter.calendar.JDateChooser tgl_kembali;
     private com.toedter.calendar.JDateChooser tgl_pinjam;
     // End of variables declaration//GEN-END:variables

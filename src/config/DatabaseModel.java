@@ -190,6 +190,43 @@ public class DatabaseModel {
         }
     }
     
+    public void showUserRequest(JTable table,int id){
+        String sql = "SELECT data_barang.nama_brg,data_barang.jumlah_brg,"
+                   + "transaksi.banyak_pinjaman,transaksi.keperluan_pinjaman,"
+                   + "transaksi.id_transaksi,transaksi.status_pinjaman\n" +
+                     "FROM transaksi\n" +
+                     "INNER JOIN data_barang ON transaksi.id_brg = data_barang.id_brg "
+                   + "JOIN data_user ON transaksi.id_user = data_user.id_user "
+                   + "WHERE data_user.id_user ="+"'"+id+"'";
+            DefaultTableModel model = new DefaultTableModel();
+            model.addColumn("No");
+            model.addColumn("No Transaksi");
+            model.addColumn("Barang");
+            model.addColumn("Jumlah");
+            model.addColumn("Keperluan");
+            model.addColumn("Stock");
+            model.addColumn("Status Pinjaman");
+            
+        try {
+            int no=1;
+            java.sql.ResultSet res = this.exec(sql);
+            while(res.next()){
+                model.addRow(new Object[]
+                {
+                 no++,
+                 res.getString("id_transaksi"),
+                 res.getString("nama_brg"),
+                 res.getString("banyak_pinjaman"),
+                 res.getString("keperluan_pinjaman"),
+                 res.getString("jumlah_brg"),
+                 res.getString("status_pinjaman")
+                });
+            }
+            table.setModel(model);
+        } catch (Exception e) {
+        }
+    }
+    
     public void approveReq(int idTransaksi){
         String status = "Approve";
         String sql = "UPDATE transaksi SET status_pinjaman = "+"'"+status+"'" +" WHERE transaksi.id_transaksi="+"'"+idTransaksi+"'";
