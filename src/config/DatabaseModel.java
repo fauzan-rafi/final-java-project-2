@@ -190,7 +190,8 @@ public class DatabaseModel {
         }
     }
     
-    public void showUserRequest(JTable table,int id){
+    public int showUserRequest(JTable table,int id){
+        int no = 0;
         String sql = "SELECT data_barang.nama_brg,data_barang.jumlah_brg,"
                    + "transaksi.banyak_pinjaman,transaksi.keperluan_pinjaman,"
                    + "transaksi.status_pinjaman\n" +
@@ -207,12 +208,11 @@ public class DatabaseModel {
             model.addColumn("Status Pinjaman");
             
         try {
-            int no=1;
             java.sql.ResultSet res = this.exec(sql);
             while(res.next()){
                 model.addRow(new Object[]
                 {
-                 no++,
+                 ++no,
                  res.getString("nama_brg"),
                  res.getString("banyak_pinjaman"),
                  res.getString("keperluan_pinjaman"),
@@ -223,8 +223,9 @@ public class DatabaseModel {
             table.setModel(model);
         } catch (Exception e) {
         }
+        return no;
     }
-    
+// -----------------------------------------------------------
     public void approveReq(int idTransaksi){
         String status = "Approve";
         String sql = "UPDATE transaksi SET status_pinjaman = "+"'"+status+"'" +" WHERE transaksi.id_transaksi="+"'"+idTransaksi+"'";
@@ -271,9 +272,14 @@ public class DatabaseModel {
         }
         return result;
     }
-//    public void showDataLanding(int idUser,JLabel label1,JLabel label2,JLabel label3){
-//        int totalRequest,totalPinjaman;
-//        String sql = "SELECT * FROM transaksi INNER";
-////        get data 
-//    }
+    
+    public int getTotalRequest(){
+        int result = 0;
+        try{
+            
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        return result;
+    }
 }

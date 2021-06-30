@@ -59,7 +59,8 @@ public class Dashboard extends javax.swing.JFrame {
         //    call function for show data 
         dbModel.barangTableUser(Jtable_barang);
         this.showUserData();
-        dbModel.showUserRequest(table_userRequest, this.user_id);
+        int req = dbModel.showUserRequest(table_userRequest, this.user_id);
+        this.fld_sewa.setText(String.valueOf(req));
         //   to create request transaction
         
     }
@@ -307,12 +308,24 @@ public class Dashboard extends javax.swing.JFrame {
         jPanel_dashboard.setPreferredSize(new java.awt.Dimension(600, 350));
 
         fld_sewa.setBackground(new java.awt.Color(142, 68, 173));
+        fld_sewa.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fld_sewa.setForeground(new java.awt.Color(255, 255, 255));
+        fld_sewa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fld_sewa.setText("A");
         fld_sewa.setOpaque(true);
 
         fld_kembali.setBackground(new java.awt.Color(241, 196, 15));
+        fld_kembali.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fld_kembali.setForeground(new java.awt.Color(255, 255, 255));
+        fld_kembali.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fld_kembali.setText("B");
         fld_kembali.setOpaque(true);
 
         fld_total.setBackground(new java.awt.Color(231, 76, 60));
+        fld_total.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fld_total.setForeground(new java.awt.Color(255, 255, 255));
+        fld_total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fld_total.setText("C");
         fld_total.setOpaque(true);
 
         jLabel16.setBackground(new java.awt.Color(153, 153, 153));

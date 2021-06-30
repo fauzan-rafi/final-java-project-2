@@ -300,6 +300,10 @@ public class DashboardAdmin extends javax.swing.JFrame {
         });
 
         fld_sewa.setBackground(new java.awt.Color(142, 68, 173));
+        fld_sewa.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fld_sewa.setForeground(new java.awt.Color(255, 255, 255));
+        fld_sewa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fld_sewa.setText("A");
         fld_sewa.setOpaque(true);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
@@ -308,9 +312,17 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel8.setText("JogoGudang");
 
         fld_kembali.setBackground(new java.awt.Color(241, 196, 15));
+        fld_kembali.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fld_kembali.setForeground(new java.awt.Color(255, 255, 255));
+        fld_kembali.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fld_kembali.setText("B");
         fld_kembali.setOpaque(true);
 
         fld_total.setBackground(new java.awt.Color(231, 76, 60));
+        fld_total.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fld_total.setForeground(new java.awt.Color(255, 255, 255));
+        fld_total.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fld_total.setText("C");
         fld_total.setOpaque(true);
 
         jLabel16.setBackground(new java.awt.Color(153, 153, 153));
