@@ -209,14 +209,13 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel_menuItem4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel_menuItem4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_menuItem4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_menuItem4.setText("Item");
+        jLabel_menuItem4.setText("Total Request");
         jLabel_menuItem4.setOpaque(true);
 
         jLabel_menuItem5.setBackground(new java.awt.Color(51, 51, 51));
         jLabel_menuItem5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel_menuItem5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_menuItem5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel_menuItem5.setText("Contact");
         jLabel_menuItem5.setOpaque(true);
 
         jLabel6.setBackground(new java.awt.Color(102, 255, 255));
@@ -466,8 +465,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                         .addComponent(btn_refuse))
                     .addGroup(jPanel_requestLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(48, 48, 48)))
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(39, 39, 39))
         );
         jPanel_requestLayout.setVerticalGroup(

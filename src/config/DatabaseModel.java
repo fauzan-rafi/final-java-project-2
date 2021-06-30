@@ -24,12 +24,9 @@ public class DatabaseModel {
 //    function for login
     public boolean login(String username,String password){
         boolean result = false;
-        String query = "SELECT username,password,id_user,status_user FROM data_user WHERE username='"+username+"'"+"AND password='"+password+"'";
-        java.sql.Connection conn;
+        String sql = "SELECT username,password,id_user,status_user FROM data_user WHERE username='"+username+"'"+"AND password='"+password+"'";
         try {
-            conn = (Connection)config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            java.sql.ResultSet res=stm.executeQuery(query);
+            java.sql.ResultSet res = this.exec(sql);
             if(res.next()){
                 if(username.equals(res.getString("username")) && password.equals(res.getString("password"))){
                     JOptionPane.showMessageDialog(null, "berhasil login");
@@ -67,9 +64,7 @@ public class DatabaseModel {
         try {
             int no=1;
             String sql = "select nama_brg,jenis_brg,jumlah_brg from data_barang";
-            java.sql.Connection conn=(Connection)config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            java.sql.ResultSet res=stm.executeQuery(sql);
+            java.sql.ResultSet res = this.exec(sql);
             while(res.next()){
                 model.addRow(new Object[]{no++,res.getString("nama_brg"),res.getString("jenis_brg"),res.getString("jumlah_brg")});
             }
@@ -99,9 +94,7 @@ public class DatabaseModel {
         int idBarang = 0;
         try {
             String sql = "SELECT id_brg FROM data_barang WHERE nama_brg="+"'"+barang+"'";
-            java.sql.Connection conn=(Connection)config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            java.sql.ResultSet res=stm.executeQuery(sql);
+            java.sql.ResultSet res= this.exec(sql);
             while(res.next()){
                 idBarang = Integer.parseInt(res.getString("id_brg"));
             }
@@ -133,9 +126,7 @@ public class DatabaseModel {
             
         try {
             int no=1;
-            java.sql.Connection conn=(Connection)config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            java.sql.ResultSet res=stm.executeQuery(sql);
+            java.sql.ResultSet res = this.exec(sql);
             while(res.next()){
                 model.addRow(new Object[]
                 {
@@ -171,8 +162,36 @@ public class DatabaseModel {
         }
     }
     
-    private static void exec(String sql){
-        
+    private java.sql.ResultSet exec(String sql){
+        java.sql.ResultSet res = null;
+        try{
+            java.sql.Connection conn=(Connection)config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            res = stm.executeQuery(sql);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        return res;
+    }
+    
+    public String[] showUser(int id){
+        String[] result = new String[10];
+        String sql = "SELECT * FROM data_user WHERE id_user="+"'"+id+"'";
+        try{
+            
+            java.sql.ResultSet hasil = this.exec(sql);
+            while( hasil.next()){
+                result[1] = hasil.getString(2);
+                result[2] = hasil.getString(4);
+                result[3] = hasil.getString(5);
+                result[4] = hasil.getString(3);
+                result[5] = hasil.getString(9);
+                result[6] = hasil.getString(8);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        return result;
     }
 //    public void showDataLanding(int idUser,JLabel label1,JLabel label2,JLabel label3){
 //        int totalRequest,totalPinjaman;

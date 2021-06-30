@@ -39,8 +39,6 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         lbl_user = new javax.swing.JLabel();
         lbl_pass = new javax.swing.JLabel();
-        see_pass = new javax.swing.JCheckBox();
-        lbl_close = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(50, 168, 121));
@@ -71,16 +69,16 @@ public class LoginPage extends javax.swing.JFrame {
         jLabel1.setText("Login ");
 
         lbl_user.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_user.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        lbl_user.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_user.setText("U : ");
         lbl_user.setOpaque(true);
 
         lbl_pass.setBackground(new java.awt.Color(255, 255, 255));
+        lbl_pass.setFont(new java.awt.Font("Yu Gothic UI Semibold", 1, 18)); // NOI18N
+        lbl_pass.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lbl_pass.setText("P :");
         lbl_pass.setOpaque(true);
-
-        see_pass.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                see_passActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -98,8 +96,7 @@ public class LoginPage extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(fldUsername, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
-                            .addComponent(fldPassword, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(see_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(fldPassword, javax.swing.GroupLayout.Alignment.TRAILING))))
                 .addGap(33, 33, 33))
         );
         jPanel2Layout.setVerticalGroup(
@@ -114,20 +111,10 @@ public class LoginPage extends javax.swing.JFrame {
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(fldPassword)
                     .addComponent(lbl_pass, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(see_pass)
-                .addGap(9, 9, 9)
+                .addGap(48, 48, 48)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(42, Short.MAX_VALUE))
         );
-
-        lbl_close.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_close.setOpaque(true);
-        lbl_close.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_closeMouseClicked(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -136,20 +123,13 @@ public class LoginPage extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(62, 62, 62)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(lbl_close, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(69, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(lbl_close, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(43, 43, 43)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
@@ -183,19 +163,6 @@ public class LoginPage extends javax.swing.JFrame {
             dispose();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    private void lbl_closeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lbl_closeMouseClicked
-        // for close
-    }//GEN-LAST:event_lbl_closeMouseClicked
-
-    private void see_passActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_see_passActionPerformed
-        // TODO add your handling code here:
-        if(see_pass.isSelected()){
-            fldPassword.setEchoChar((char)0);
-        }else{
-            fldPassword.setEchoChar('*');
-        }
-    }//GEN-LAST:event_see_passActionPerformed
     
     /**
      * @param args the command line arguments
@@ -239,9 +206,7 @@ public class LoginPage extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JLabel lbl_close;
     private javax.swing.JLabel lbl_pass;
     private javax.swing.JLabel lbl_user;
-    private javax.swing.JCheckBox see_pass;
     // End of variables declaration//GEN-END:variables
 }
