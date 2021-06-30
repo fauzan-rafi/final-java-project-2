@@ -31,6 +31,8 @@ public class DashboardAdmin extends javax.swing.JFrame {
     
     JPanel[] panels = new JPanel[5];
     
+    JTable Jtable_barang = new JTable();
+    
     public DashboardAdmin(String id) {
         initComponents();
         loadData(Integer.parseInt(id));
@@ -53,17 +55,21 @@ public class DashboardAdmin extends javax.swing.JFrame {
         
         addActionToMenuLabels();
         
-        dbModel.showRequest(table_request);
-        dbModel.showNewRequest(table_newRequest);
+        int barang = dbModel.barangTableUser(Jtable_barang);
+        this.fld_total.setText(String.valueOf(barang));
+        
+        int req = dbModel.showRequest(table_request);
+        this.fld_req.setText(String.valueOf(req));
+        
+        int newReq = dbModel.showNewRequest(table_newRequest);
+        this.fld_newReq.setText(String.valueOf(newReq));
     }
     
     public void setLabelBackground(JLabel label){
-        
         for(JLabel menuItem : menuLabels){
             menuItem.setBackground(new Color(46,49,49));
             menuItem.setForeground(Color.white);
         }
-        
         
         label.setBackground(Color.white);
         label.setForeground(Color.black);
@@ -160,9 +166,9 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         jPanel_dashboard = new javax.swing.JPanel();
         btn_logout = new javax.swing.JButton();
-        fld_sewa = new javax.swing.JLabel();
+        fld_newReq = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        fld_kembali = new javax.swing.JLabel();
+        fld_req = new javax.swing.JLabel();
         fld_total = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -299,24 +305,24 @@ public class DashboardAdmin extends javax.swing.JFrame {
             }
         });
 
-        fld_sewa.setBackground(new java.awt.Color(142, 68, 173));
-        fld_sewa.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        fld_sewa.setForeground(new java.awt.Color(255, 255, 255));
-        fld_sewa.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fld_sewa.setText("A");
-        fld_sewa.setOpaque(true);
+        fld_newReq.setBackground(new java.awt.Color(142, 68, 173));
+        fld_newReq.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fld_newReq.setForeground(new java.awt.Color(255, 255, 255));
+        fld_newReq.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fld_newReq.setText("A");
+        fld_newReq.setOpaque(true);
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setText("JogoGudang");
 
-        fld_kembali.setBackground(new java.awt.Color(241, 196, 15));
-        fld_kembali.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        fld_kembali.setForeground(new java.awt.Color(255, 255, 255));
-        fld_kembali.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        fld_kembali.setText("B");
-        fld_kembali.setOpaque(true);
+        fld_req.setBackground(new java.awt.Color(241, 196, 15));
+        fld_req.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        fld_req.setForeground(new java.awt.Color(255, 255, 255));
+        fld_req.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        fld_req.setText("B");
+        fld_req.setOpaque(true);
 
         fld_total.setBackground(new java.awt.Color(231, 76, 60));
         fld_total.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
@@ -329,13 +335,13 @@ public class DashboardAdmin extends javax.swing.JFrame {
         jLabel16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel16.setText("Request");
+        jLabel16.setText("New Request");
 
         jLabel18.setBackground(new java.awt.Color(153, 153, 153));
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Pinjaman");
+        jLabel18.setText("Request");
 
         jLabel19.setBackground(new java.awt.Color(153, 153, 153));
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
@@ -361,12 +367,12 @@ public class DashboardAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel22, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel_dashboardLayout.createSequentialGroup()
                         .addGroup(jPanel_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(fld_sewa, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(fld_newReq, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(fld_kembali, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(fld_req, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                         .addGroup(jPanel_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -388,8 +394,8 @@ public class DashboardAdmin extends javax.swing.JFrame {
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fld_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fld_sewa, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fld_req, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fld_newReq, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(fld_total, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btn_logout, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -825,8 +831,8 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private javax.swing.JButton btn_logout;
     private javax.swing.JButton btn_refuse;
     private javax.swing.JTextField fld_idTransaksi;
-    private javax.swing.JLabel fld_kembali;
-    private javax.swing.JLabel fld_sewa;
+    private javax.swing.JLabel fld_newReq;
+    private javax.swing.JLabel fld_req;
     private javax.swing.JLabel fld_total;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel16;

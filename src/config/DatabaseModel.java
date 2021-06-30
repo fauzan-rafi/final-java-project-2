@@ -21,6 +21,18 @@ public class DatabaseModel {
     this.config = new Config();
     }
     
+// main function
+    private java.sql.ResultSet exec(String sql){
+        java.sql.ResultSet res = null;
+        try{
+            java.sql.Connection conn=(Connection)config.configDB();
+            java.sql.Statement stm=conn.createStatement();
+            res = stm.executeQuery(sql);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        return res;
+    }
 //    function for login
     public boolean login(String username,String password){
         boolean result = false;
@@ -52,25 +64,27 @@ public class DatabaseModel {
     
     
 //    function for show data barang in user
-    public void barangTableUser(JTable table){
+    public int barangTableUser(JTable table){
         // membuat tampilan model tabel
         DefaultTableModel model = new DefaultTableModel();
         model.addColumn("No");
         model.addColumn("Barang");
         model.addColumn("Jenis");
         model.addColumn("Jumlah");
-        
         //menampilkan data database kedalam tabel
+        int no=0;
         try {
-            int no=1;
             String sql = "select nama_brg,jenis_brg,jumlah_brg from data_barang";
             java.sql.ResultSet res = this.exec(sql);
             while(res.next()){
-                model.addRow(new Object[]{no++,res.getString("nama_brg"),res.getString("jenis_brg"),res.getString("jumlah_brg")});
+                model.addRow(new Object[]{
+                    ++no,res.getString("nama_brg"),res.getString("jenis_brg"),
+                    res.getString("jumlah_brg")});
             }
             table.setModel(model);
         } catch (Exception e) {
         }
+        return no;
     }
     
 //    function for create request in user
@@ -104,7 +118,7 @@ public class DatabaseModel {
         return idBarang;
     }
     
-    public void showRequest(JTable table){
+    public int showRequest(JTable table){
         String sql = "SELECT data_barang.nama_brg,data_barang.jumlah_brg,"
                    + "data_user.nama_user,"
                    + "transaksi.banyak_pinjaman,transaksi.keperluan_pinjaman,"
@@ -124,13 +138,13 @@ public class DatabaseModel {
             model.addColumn("Stock");
             model.addColumn("Status Pinjaman");
             
+            int no=0;
         try {
-            int no=1;
             java.sql.ResultSet res = this.exec(sql);
             while(res.next()){
                 model.addRow(new Object[]
                 {
-                 no++,
+                 ++no,
                  res.getString("id_transaksi"),
                  res.getString("nama_brg"),
                  res.getString("nama_user"),
@@ -145,9 +159,10 @@ public class DatabaseModel {
             table.setModel(model);
         } catch (Exception e) {
         }
+        return no;
     }
     
-    public void showNewRequest(JTable table){
+    public int showNewRequest(JTable table){
         String sql = "SELECT data_barang.nama_brg,data_barang.jumlah_brg,"
                    + "data_user.nama_user,"
                    + "transaksi.banyak_pinjaman,transaksi.keperluan_pinjaman,"
@@ -167,13 +182,13 @@ public class DatabaseModel {
             model.addColumn("Stock");
             model.addColumn("Status Pinjaman");
             
+            int no=0;
         try {
-            int no=1;
             java.sql.ResultSet res = this.exec(sql);
             while(res.next()){
                 model.addRow(new Object[]
                 {
-                 no++,
+                 ++no,
                  res.getString("id_transaksi"),
                  res.getString("nama_brg"),
                  res.getString("nama_user"),
@@ -188,6 +203,7 @@ public class DatabaseModel {
             table.setModel(model);
         } catch (Exception e) {
         }
+        return no;
     }
     
     public int showUserRequest(JTable table,int id){
@@ -241,17 +257,6 @@ public class DatabaseModel {
         }
     }
     
-    private java.sql.ResultSet exec(String sql){
-        java.sql.ResultSet res = null;
-        try{
-            java.sql.Connection conn=(Connection)config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            res = stm.executeQuery(sql);
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null,e.getMessage());
-        }
-        return res;
-    }
     
     public String[] showUser(int id){
         String[] result = new String[10];

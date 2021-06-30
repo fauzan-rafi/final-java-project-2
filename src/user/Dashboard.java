@@ -57,8 +57,11 @@ public class Dashboard extends javax.swing.JFrame {
         addActionToMenuLabels();
         
         //    call function for show data 
-        dbModel.barangTableUser(Jtable_barang);
+        int barang = dbModel.barangTableUser(Jtable_barang);
+        this.fld_total.setText(String.valueOf(barang));
+        
         this.showUserData();
+        
         int req = dbModel.showUserRequest(table_userRequest, this.user_id);
         this.fld_sewa.setText(String.valueOf(req));
         //   to create request transaction
@@ -338,7 +341,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel18.setForeground(new java.awt.Color(255, 255, 255));
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel18.setText("Pinjaman");
+        jLabel18.setText("Lorem Ipsum");
 
         jLabel19.setBackground(new java.awt.Color(153, 153, 153));
         jLabel19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N

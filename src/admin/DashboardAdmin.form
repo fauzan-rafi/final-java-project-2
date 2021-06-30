@@ -280,13 +280,13 @@
                           <Component id="jLabel22" alignment="0" max="32767" attributes="0"/>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="fld_sewa" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
+                                  <Component id="fld_newReq" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                                   <Component id="jLabel16" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel8" alignment="0" max="32767" attributes="0"/>
-                                  <Component id="fld_kembali" alignment="0" max="32767" attributes="0"/>
+                                  <Component id="fld_req" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel18" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace pref="31" max="32767" attributes="0"/>
@@ -315,8 +315,8 @@
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="fld_kembali" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
-                          <Component id="fld_sewa" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                          <Component id="fld_req" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
+                          <Component id="fld_newReq" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                           <Component id="fld_total" alignment="0" min="-2" pref="105" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -354,7 +354,7 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_logoutActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JLabel" name="fld_sewa">
+            <Component class="javax.swing.JLabel" name="fld_newReq">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ad" green="44" red="8e" type="rgb"/>
@@ -382,7 +382,7 @@
                 <Property name="text" type="java.lang.String" value="JogoGudang"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JLabel" name="fld_kembali">
+            <Component class="javax.swing.JLabel" name="fld_req">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="f" green="c4" red="f1" type="rgb"/>
@@ -426,7 +426,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Request"/>
+                <Property name="text" type="java.lang.String" value="New Request"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel18">
@@ -441,7 +441,7 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Pinjaman"/>
+                <Property name="text" type="java.lang.String" value="Request"/>
               </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
