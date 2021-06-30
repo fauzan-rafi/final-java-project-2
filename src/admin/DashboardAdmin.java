@@ -746,7 +746,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
         int idTransaksi = Integer.parseInt(fld_idTransaksi.getText());
         dbModel.approveReq(idTransaksi);
         fld_idTransaksi.setText("");
-        dbModel.showRequest(table_newRequest);
+        dbModel.showNewRequest(table_newRequest);
     }//GEN-LAST:event_btn_approveActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
