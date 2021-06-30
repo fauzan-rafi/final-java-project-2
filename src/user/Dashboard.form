@@ -217,7 +217,6 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Item"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
@@ -233,7 +232,6 @@
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
                 <Property name="horizontalAlignment" type="int" value="0"/>
-                <Property name="text" type="java.lang.String" value="Contact"/>
                 <Property name="opaque" type="boolean" value="true"/>
               </Properties>
             </Component>
@@ -497,25 +495,25 @@
                                   <EmptySpace min="-2" pref="61" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" attributes="0">
-                                          <Component id="lblJumlahPinjaman" min="-2" pref="197" max="-2" attributes="0"/>
+                                          <Component id="lblJumlahPinjaman2" min="-2" pref="197" max="-2" attributes="0"/>
                                           <EmptySpace max="32767" attributes="0"/>
-                                          <Component id="lblJumlahPinjaman1" min="-2" pref="197" max="-2" attributes="0"/>
+                                          <Component id="lblJumlahPinjaman" min="-2" pref="197" max="-2" attributes="0"/>
                                       </Group>
                                       <Group type="102" attributes="0">
                                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                              <Component id="lblNama" alignment="0" pref="197" max="32767" attributes="0"/>
-                                              <Component id="lblNoHP" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblAlamat" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblEmail" alignment="0" max="32767" attributes="0"/>
-                                              <Component id="lblStatus" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblNama2" alignment="0" pref="197" max="32767" attributes="0"/>
+                                              <Component id="lblNoHP2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblAlamat2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblEmail2" alignment="0" max="32767" attributes="0"/>
+                                              <Component id="lblStatus2" alignment="0" max="32767" attributes="0"/>
                                           </Group>
                                           <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="lblNama1" pref="197" max="32767" attributes="0"/>
-                                              <Component id="lblNoHP1" max="32767" attributes="0"/>
-                                              <Component id="lblAlamat1" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="lblEmail1" alignment="1" max="32767" attributes="0"/>
-                                              <Component id="lblStatus1" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="lblNama" pref="197" max="32767" attributes="0"/>
+                                              <Component id="lblNoHP" max="32767" attributes="0"/>
+                                              <Component id="lblAlamat" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="lblEmail" alignment="1" max="32767" attributes="0"/>
+                                              <Component id="lblStatus" alignment="1" max="32767" attributes="0"/>
                                           </Group>
                                       </Group>
                                   </Group>
@@ -532,33 +530,33 @@
                           <Component id="jLabel1" min="-2" pref="51" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblNama2" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="lblNama" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="lblNama1" alignment="1" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblNoHP2" min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="lblNoHP" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="lblNoHP1" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblAlamat2" min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="lblAlamat" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="lblAlamat1" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblEmail2" min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="lblEmail" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="lblEmail1" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblStatus2" min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="lblStatus" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="lblStatus1" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="lblJumlahPinjaman2" min="-2" pref="40" max="-2" attributes="0"/>
                               <Component id="lblJumlahPinjaman" min="-2" pref="40" max="-2" attributes="0"/>
-                              <Component id="lblJumlahPinjaman1" min="-2" pref="40" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="79" max="-2" attributes="0"/>
                       </Group>
@@ -578,68 +576,73 @@
                     <Property name="text" type="java.lang.String" value="Profile"/>
                   </Properties>
                 </Component>
+                <Component class="javax.swing.JLabel" name="lblNama2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Symbol" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Nama :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblNoHP2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Symbol" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="No HP :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblAlamat2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Symbol" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Alamat :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblEmail2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Symbol" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Email : "/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblStatus2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Symbol" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Status :"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="lblJumlahPinjaman2">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Segoe UI Symbol" size="18" style="1"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="Pinjaman :"/>
+                  </Properties>
+                </Component>
                 <Component class="javax.swing.JLabel" name="lblNama">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Symbol" size="18" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblNoHP">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Symbol" size="18" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblAlamat">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Symbol" size="18" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblEmail">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Symbol" size="18" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblStatus">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Symbol" size="18" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblJumlahPinjaman">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Segoe UI Symbol" size="18" style="1"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="null"/>
-                  </Properties>
-                </Component>
-                <Component class="javax.swing.JLabel" name="lblNama1">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Symbol" size="18" style="1"/>
@@ -649,8 +652,11 @@
                     </Property>
                     <Property name="text" type="java.lang.String" value="Nama"/>
                   </Properties>
+                  <AccessibilityProperties>
+                    <Property name="AccessibleContext.accessibleName" type="java.lang.String" value=""/>
+                  </AccessibilityProperties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblNoHP1">
+                <Component class="javax.swing.JLabel" name="lblNoHP">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Symbol" size="18" style="1"/>
@@ -661,7 +667,7 @@
                     <Property name="text" type="java.lang.String" value="No HP"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblAlamat1">
+                <Component class="javax.swing.JLabel" name="lblAlamat">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Symbol" size="18" style="1"/>
@@ -672,7 +678,7 @@
                     <Property name="text" type="java.lang.String" value="Alamat"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblEmail1">
+                <Component class="javax.swing.JLabel" name="lblEmail">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Symbol" size="18" style="1"/>
@@ -683,7 +689,7 @@
                     <Property name="text" type="java.lang.String" value="Email"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblStatus1">
+                <Component class="javax.swing.JLabel" name="lblStatus">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Symbol" size="18" style="1"/>
@@ -694,7 +700,7 @@
                     <Property name="text" type="java.lang.String" value="Status"/>
                   </Properties>
                 </Component>
-                <Component class="javax.swing.JLabel" name="lblJumlahPinjaman1">
+                <Component class="javax.swing.JLabel" name="lblJumlahPinjaman">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Segoe UI Symbol" size="18" style="1"/>
@@ -727,7 +733,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jPanel2" pref="458" max="32767" attributes="0"/>
+                  <Component id="jPanel2" pref="459" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
