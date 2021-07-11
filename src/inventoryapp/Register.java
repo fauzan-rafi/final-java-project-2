@@ -39,7 +39,6 @@ public class Register extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         fldNama = new javax.swing.JTextField();
-        fldAlamat = new javax.swing.JTextField();
         submitRegis = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         fldNo = new javax.swing.JTextField();
@@ -49,6 +48,8 @@ public class Register extends javax.swing.JFrame {
         jLabel7 = new javax.swing.JLabel();
         fldUsername = new javax.swing.JTextField();
         fldPassword = new javax.swing.JPasswordField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        fldAlamat = new javax.swing.JTextArea();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Form Register");
@@ -62,8 +63,6 @@ public class Register extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel3.setText("Alamat :");
-
-        fldAlamat.setHorizontalAlignment(javax.swing.JTextField.LEFT);
 
         submitRegis.setFont(new java.awt.Font("MS PGothic", 1, 18)); // NOI18N
         submitRegis.setText("Register");
@@ -103,6 +102,12 @@ public class Register extends javax.swing.JFrame {
             }
         });
 
+        fldAlamat.setColumns(20);
+        fldAlamat.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        fldAlamat.setRows(5);
+        fldAlamat.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(fldAlamat);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,13 +128,12 @@ public class Register extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(submitRegis, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(fldAlamat)
-                        .addComponent(fldNama)
-                        .addComponent(fldNo)
-                        .addComponent(fldEmail)
-                        .addComponent(fldUsername)
-                        .addComponent(fldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)))
+                    .addComponent(fldNama)
+                    .addComponent(fldNo)
+                    .addComponent(fldEmail)
+                    .addComponent(fldUsername)
+                    .addComponent(fldPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 280, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -144,8 +148,8 @@ public class Register extends javax.swing.JFrame {
                 .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fldAlamat, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fldNo, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
@@ -234,7 +238,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField fldAlamat;
+    private javax.swing.JTextArea fldAlamat;
     private javax.swing.JTextField fldEmail;
     private javax.swing.JTextField fldNama;
     private javax.swing.JTextField fldNo;
@@ -247,6 +251,7 @@ public class Register extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JButton submitRegis;
     // End of variables declaration//GEN-END:variables
 }

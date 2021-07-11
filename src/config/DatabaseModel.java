@@ -24,6 +24,8 @@ public class DatabaseModel {
     public DatabaseModel(){
     this.config = new Config();
     }
+    
+// general method
 // ------------------------------------------------------------------------------------------------------------------
 // main function
     public java.sql.ResultSet exec(String sql){
@@ -44,7 +46,7 @@ public class DatabaseModel {
         try{
             java.sql.Connection conn=(Connection)config.configDB();
             java.sql.PreparedStatement pst= conn.prepareStatement(sql);
-            if (pst.execute())
+            if ( pst.execute() )
                 result = true;
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.getMessage());
@@ -52,6 +54,29 @@ public class DatabaseModel {
         }
         return result;
     }
+// ------------------------------------------------------------------------------------------------------------------
+    public boolean deleteData(int id,String table,String param){
+        boolean result = false;
+        try{
+            java.sql.Connection conn=(Connection)config.configDB();
+            String sql = "DELETE FROM "+ table +" WHERE "+ param +" = ?";
+            java.sql.PreparedStatement pst= conn.prepareStatement(sql);
+            pst.setInt(1,id);
+            if ( pst.execute() )
+                result = true;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+            result = false;
+        }
+        return result;
+    }
+// ------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+// costum method
 // ------------------------------------------------------------------------------------------------------------------
 //    function for login
     public boolean login(String username,String password){
@@ -125,6 +150,66 @@ public class DatabaseModel {
         }
         return no;
     }
+// ------------------------------------------------------------------------------------------------------------------   
+//    function for show data barang in user
+    public int barangTableAdmin(JTable table){
+        // membuat tampilan model tabel
+        DefaultTableModel model = new DefaultTableModel();
+        model.addColumn("No");
+        model.addColumn("ID");
+        model.addColumn("Barang");
+        model.addColumn("Jenis");
+        model.addColumn("Status");
+        model.addColumn("Jumlah");
+        //menampilkan data database kedalam tabel
+        int no=0;
+        try {
+            String sql = "select * from data_barang";
+            java.sql.ResultSet res = this.exec(sql);
+            while(res.next()){
+                model.addRow(new Object[]{
+                    ++no,res.getString("id_brg"),res.getString("nama_brg"),res.getString("jenis_brg"),res.getString("status_brg"),
+                    res.getString("jumlah_brg")});
+            }
+            table.setModel(model);
+        } catch (Exception e) {
+        }
+        return no;
+    }
+// ------------------------------------------------------------------------------------------------------------------   
+    public boolean deleteBarang(int id){
+        boolean result = false;
+        try{
+            this.deleteData(id, "data_barang", "id_brg");
+            result = true;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return result;
+    }    
+// ------------------------------------------------------------------------------------------------------------------   
+    public boolean insertBarang(String [] param){
+        boolean result = false;
+        try{
+            String sql = "INSERT INTO data_barang (nama_brg,jenis_brg,satuan_brg,jumlah_brg)"
+                            + "VALUES ('"+param[0]+"','"+param[1]+"','"+param[2]+"','"+param[3]+"')";
+            this.insertData(sql);
+            result = true;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, e.getMessage());
+        }
+        return result;
+    }    
+// ------------------------------------------------------------------------------------------------------------------   
+
+
+
+
+
+
+
+
+// transaksi fungsi
 // ------------------------------------------------------------------------------------------------------------------   
 //    function for create request in user
     public void createRequest(int id_user,String barang,String keperluan,String jumlah,String pinjam,String kembali){
@@ -293,7 +378,6 @@ public class DatabaseModel {
             JOptionPane.showMessageDialog(null, "Request gagal di approve Error: "+e.getMessage());
         }
     }
-    
 // ------------------------------------------------------------------------------------------------------------
     public String[] showUser(int id){
         String[] result = new String[10];

@@ -851,7 +851,7 @@ public class Dashboard extends javax.swing.JFrame {
         fld_keperluan.setText("");
         fld_jumlah.setText("");
         ((JTextField)tgl_pinjam.getDateEditor().getUiComponent()).setText("");
-        ((JTextField)tgl_kembali.getDateEditor().getUiComponent()).setText(" ");
+        ((JTextField)tgl_kembali.getDateEditor().getUiComponent()).setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
