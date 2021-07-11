@@ -12,8 +12,10 @@ public class Register extends javax.swing.JFrame {
     /**
      * Creates new form Register
      */
-    Config config = new Config();
-     DatabaseModel dbModel = new DatabaseModel();
+     Config config = new Config();
+     User user = new User();
+        
+     
     public Register() {
         initComponents();
     }
@@ -183,11 +185,10 @@ public class Register extends javax.swing.JFrame {
         char[] tempPass = fldPassword.getPassword();
         String password = String.valueOf(tempPass);
         temp[5] = password;
-        if( dbModel.register(temp)){
+        if( user.register(temp)){
             this.kosong();
             dispose();
         }
-        
     }//GEN-LAST:event_submitRegisActionPerformed
 
     private void fldEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fldEmailActionPerformed

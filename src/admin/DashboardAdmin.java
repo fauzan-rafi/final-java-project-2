@@ -16,12 +16,17 @@ import javax.swing.border.Border;
  */
 public class DashboardAdmin extends javax.swing.JFrame {
 
-   DatabaseModel dbModel = new DatabaseModel();
-    String nama,alamat,email,nomor;
+    Config config = new Config();
+    
+   Barang barang = new Barang();
+   User user = new User();
+   Transaksi transaksi = new Transaksi();
+   
+   String nama,alamat,email,nomor;
     /**
      * Creates new form Dashboard
      */
-    Config config = new Config();
+   
     
     Border default_border = BorderFactory.createMatteBorder(1, 0, 1, 0, new Color(46,49,49));
     
@@ -55,16 +60,16 @@ public class DashboardAdmin extends javax.swing.JFrame {
         
         addActionToMenuLabels();
         
-        int barang = dbModel.barangTableUser(Jtable_barang);
-        this.fld_total.setText(String.valueOf(barang));
+        int totalBarang = barang.barangTableUser(Jtable_barang);
+        this.fld_total.setText(String.valueOf(totalBarang));
         
-        int req = dbModel.showRequest(table_request);
+        int req = transaksi.showRequest(table_request);
         this.fld_req.setText(String.valueOf(req));
         
-        int newReq = dbModel.showNewRequest(table_newRequest);
+        int newReq = transaksi.showNewRequest(table_newRequest);
         this.fld_newReq.setText(String.valueOf(newReq));
         
-        dbModel.barangTableAdmin(jTable1);
+        barang.barangTableAdmin(jTable1);
     }
     
     public void setLabelBackground(JLabel label){
@@ -78,7 +83,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
     }
     
     public void showUserData(){
-        String[] result = dbModel.showUser(160105);
+        String[] result = user.showUser(160105);
         lblNama.setText(result[1]);
         lblNoHP.setText(result[2]);
         lblEmail.setText(result[3]);
@@ -951,9 +956,11 @@ public class DashboardAdmin extends javax.swing.JFrame {
     private void btn_approveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_approveActionPerformed
         // TODO add your handling code here:
         int idTransaksi = Integer.parseInt(fld_idTransaksi.getText());
-        dbModel.approveReq(idTransaksi);
+        transaksi.approveReq(idTransaksi);
         fld_idTransaksi.setText("");
-        dbModel.showNewRequest(table_newRequest);
+        transaksi.showNewRequest(table_newRequest);
+        transaksi.showRequest(table_request);
+        barang.barangTableAdmin(jTable1);
     }//GEN-LAST:event_btn_approveActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
@@ -970,7 +977,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 data[0] = fldNama.getText();
                 data[3] = fldJumlah.getText();
                 data[1] = fldJenis.getText();
-                if(dbModel.insertBarang(data)){
+                if(barang.insertBarang(data)){
                     JOptionPane.showMessageDialog(null, "Tambah Barang Berhasil");
                     fldNama.setText(""); 
                     fldJumlah.setText(""); 
@@ -982,20 +989,20 @@ public class DashboardAdmin extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null, "Tambah Barang Gagal!!");
         }
-        dbModel.barangTableAdmin(jTable1);
+        barang.barangTableAdmin(jTable1);
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         int id = Integer.parseInt(fldId.getText());
-        if(dbModel.deleteBarang(id)){
+        if(barang.deleteBarang(id)){
             JOptionPane.showMessageDialog(null, "Data Terhapus");
             fldId.setText("");
         }else{
-            System.out.println(dbModel.deleteBarang(id));
+            System.out.println(barang.deleteBarang(id));
             JOptionPane.showMessageDialog(null, "Data Tidak Terhapus");
             fldId.setText("");
         }
-        dbModel.barangTableAdmin(jTable1);
+        barang.barangTableAdmin(jTable1);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     /**

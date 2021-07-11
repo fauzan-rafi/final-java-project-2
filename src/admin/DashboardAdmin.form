@@ -91,14 +91,14 @@
                   <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jPanel_menu" max="32767" attributes="0"/>
-                      <Component id="jPanel_dashboard" max="32767" attributes="0"/>
+                      <Component id="jPanel_dashboard" pref="459" max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                   <Component id="jPanel_user" alignment="0" pref="462" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="2" groupAlignment="0" attributes="0">
-                  <Component id="jPanel_request" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jPanel_request" alignment="1" pref="462" max="32767" attributes="0"/>
               </Group>
               <Group type="103" rootIndex="3" groupAlignment="0" attributes="0">
                   <Component id="jPanel_item" alignment="1" max="32767" attributes="0"/>

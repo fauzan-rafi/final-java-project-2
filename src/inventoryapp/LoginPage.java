@@ -12,7 +12,9 @@ import config.*;
 import java.awt.Image;
 
 public class LoginPage extends javax.swing.JFrame {
-    DatabaseModel dbModel = new DatabaseModel();
+    Barang barang = new Barang();
+    User user = new User();
+    Transaksi transaksi = new Transaksi();
     public LoginPage() {
         initComponents();
         
@@ -180,7 +182,7 @@ public class LoginPage extends javax.swing.JFrame {
         String username = fldUsername.getText();
         char[] temp = fldPassword.getPassword();
         String password = String.valueOf(temp);
-        boolean login = dbModel.login(username, password);
+        boolean login = user.login(username, password);
         if(login){
             fldUsername.setText("");
             fldPassword.setText("");

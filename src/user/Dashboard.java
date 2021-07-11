@@ -19,7 +19,9 @@ public class Dashboard extends javax.swing.JFrame {
 
     int user_id;
     
-    DatabaseModel dbModel = new DatabaseModel();
+   Barang barang = new Barang();
+   User user = new User();
+   Transaksi transaksi = new Transaksi();
    
     String nama,alamat,email,nomor;
     /**
@@ -57,12 +59,12 @@ public class Dashboard extends javax.swing.JFrame {
         addActionToMenuLabels();
         
         //    call function for show data 
-        int barang = dbModel.barangTableUser(Jtable_barang);
-        this.fld_total.setText(String.valueOf(barang));
+        int brg = barang.barangTableUser(Jtable_barang);
+        this.fld_total.setText(String.valueOf(brg));
         
         this.showUserData();
         
-        int req = dbModel.showUserRequest(table_userRequest, this.user_id);
+        int req = transaksi.showUserRequest(table_userRequest, this.user_id);
         this.fld_sewa.setText(String.valueOf(req));
         //   to create request transaction
         
@@ -143,7 +145,7 @@ public class Dashboard extends javax.swing.JFrame {
     }
     
     public void showUserData(){
-        String[] result = dbModel.showUser(this.user_id);
+        String[] result = user.showUser(this.user_id);
         lblNama.setText(result[1]);
         lblNoHP.setText(result[2]);
         lblEmail.setText(result[3]);
@@ -842,15 +844,21 @@ public class Dashboard extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        String pesan = jCoBox_barang.getSelectedItem().toString() +","+ fld_keperluan.getText() + " " + fld_jumlah.getText() + " " + ((JTextField)tgl_pinjam.getDateEditor().getUiComponent()).getText() + " " + ((JTextField)tgl_kembali.getDateEditor().getUiComponent()).getText();
+        String pesan = jCoBox_barang.getSelectedItem().toString() +","
+                + fld_keperluan.getText() 
+                        + " " + fld_jumlah.getText() + " " + ((JTextField)
+                        tgl_pinjam.getDateEditor().getUiComponent()).getText() + " " 
+                + ((JTextField)tgl_kembali.getDateEditor().getUiComponent()).getText();
         
-        dbModel.createRequest(this.user_id, jCoBox_barang.getSelectedItem().toString()
-                , fld_keperluan.getText(), fld_jumlah.getText(), ((JTextField)tgl_pinjam.getDateEditor().getUiComponent()).getText(), 
+        transaksi.createRequest(this.user_id, jCoBox_barang.getSelectedItem().toString()
+                , fld_keperluan.getText(), fld_jumlah.getText(), 
+                ((JTextField)tgl_pinjam.getDateEditor().getUiComponent()).getText(), 
                 ((JTextField)tgl_kembali.getDateEditor().getUiComponent()).getText());
         fld_keperluan.setText("");
         fld_jumlah.setText("");
         ((JTextField)tgl_pinjam.getDateEditor().getUiComponent()).setText("");
         ((JTextField)tgl_kembali.getDateEditor().getUiComponent()).setText("");
+        transaksi.showUserRequest(table_userRequest, this.user_id);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btn_logoutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_logoutActionPerformed
