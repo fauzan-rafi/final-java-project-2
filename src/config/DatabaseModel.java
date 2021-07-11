@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import user.Dashboard;
 import admin.DashboardAdmin;
+import inventoryapp.Register;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -17,12 +18,15 @@ import javax.swing.table.DefaultTableModel;
 
 public class DatabaseModel {
     Config config;
+    
+    
+    
     public DatabaseModel(){
     this.config = new Config();
     }
-    
+// ------------------------------------------------------------------------------------------------------------------
 // main function
-    private java.sql.ResultSet exec(String sql){
+    public java.sql.ResultSet exec(String sql){
         java.sql.ResultSet res = null;
         try{
             java.sql.Connection conn=(Connection)config.configDB();
@@ -33,6 +37,22 @@ public class DatabaseModel {
         }
         return res;
     }
+// ------------------------------------------------------------------------------------------------------------------
+//    function insert data
+    public boolean insertData(String sql){
+        boolean result = false;
+        try{
+            java.sql.Connection conn=(Connection)config.configDB();
+            java.sql.PreparedStatement pst= conn.prepareStatement(sql);
+            if (pst.execute())
+                result = true;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+            result = false;
+        }
+        return result;
+    }
+// ------------------------------------------------------------------------------------------------------------------
 //    function for login
     public boolean login(String username,String password){
         boolean result = false;
@@ -57,12 +77,31 @@ public class DatabaseModel {
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginPage.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(null,ex.getMessage());
             result = false;
         }
         return result;
     }
     
-    
+// ------------------------------------------------------------------------------------------------------------------   
+    public boolean register(String [] data)
+    {
+        boolean retr = false;
+        try{
+            String sql = "INSERT INTO data_user (nama_user,alamat_user,nomor_user,email_user,username,password) "
+                    + "VALUES ('"+data[0]+"','"+data[1]+"','"+data[2]+"','"+data[3]+"','"+data[4]+"','"+data[5]+"')";
+            boolean result = this.insertData(sql);
+            if(result)
+                JOptionPane.showMessageDialog(null, "Registrasi user Berhasil");
+                this.login(data[4],data[5]);
+                retr = true;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Registrasi user gagal");
+            retr = false;
+        }
+        return retr;
+    }
+// ------------------------------------------------------------------------------------------------------------------   
 //    function for show data barang in user
     public int barangTableUser(JTable table){
         // membuat tampilan model tabel
@@ -86,7 +125,7 @@ public class DatabaseModel {
         }
         return no;
     }
-    
+// ------------------------------------------------------------------------------------------------------------------   
 //    function for create request in user
     public void createRequest(int id_user,String barang,String keperluan,String jumlah,String pinjam,String kembali){
         int id_barang = this.getIdBarang(barang);
@@ -95,15 +134,14 @@ public class DatabaseModel {
                         + "(id_brg,id_user,keperluan_pinjaman,banyak_pinjaman,tanggal_pinjaman,tanggal_kembali) "
                         + "VALUES"
                         + "('"+id_barang+"','"+id_user+"','"+keperluan+"','"+jumlah+"','"+pinjam+"','"+kembali+"')";
-            java.sql.Connection conn=(Connection)config.configDB();
-            java.sql.PreparedStatement pst=conn.prepareStatement(sql);
-            pst.execute();
+            this.insertData(sql);
             JOptionPane.showMessageDialog(null, "Penyimpanan Data Berhasil");
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, e.getMessage());
         }
     }
-    
+// ------------------------------------------------------------------------------------------------------------------    
+//    function to get id barang
     private int getIdBarang(String barang){
         int idBarang = 0;
         try {
@@ -117,7 +155,8 @@ public class DatabaseModel {
         }
         return idBarang;
     }
-    
+// ------------------------------------------------------------------------------------------------------------------   
+// function to create request table
     public int showRequest(JTable table){
         String sql = "SELECT data_barang.nama_brg,data_barang.jumlah_brg,"
                    + "data_user.nama_user,"
@@ -161,7 +200,7 @@ public class DatabaseModel {
         }
         return no;
     }
-    
+// ------------------------------------------------------------------------------------------------------------------   
     public int showNewRequest(JTable table){
         String sql = "SELECT data_barang.nama_brg,data_barang.jumlah_brg,"
                    + "data_user.nama_user,"
@@ -205,7 +244,7 @@ public class DatabaseModel {
         }
         return no;
     }
-    
+// ------------------------------------------------------------------------------------------------------------------    
     public int showUserRequest(JTable table,int id){
         int no = 0;
         String sql = "SELECT data_barang.nama_brg,data_barang.jumlah_brg,"
@@ -241,23 +280,21 @@ public class DatabaseModel {
         }
         return no;
     }
-// -----------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------
     public void approveReq(int idTransaksi){
         String status = "Approve";
         String sql = "UPDATE transaksi SET status_pinjaman = "+"'"+status+"'" +" WHERE transaksi.id_transaksi="+"'"+idTransaksi+"'";
         try{
             java.sql.Connection conn=(Connection)config.configDB();
             java.sql.Statement stm=conn.createStatement();
-            int res=stm.executeUpdate(sql);
-//            assertEquals(res, 1);
+            int res = stm.executeUpdate(sql);
             JOptionPane.showMessageDialog(null, "Request berhasil di approve");
-            
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Request gagal di approve Error: "+e.getMessage());
         }
     }
     
-    
+// ------------------------------------------------------------------------------------------------------------
     public String[] showUser(int id){
         String[] result = new String[10];
         String sql = "SELECT * FROM data_user WHERE id_user="+"'"+id+"'";
@@ -277,14 +314,19 @@ public class DatabaseModel {
         }
         return result;
     }
-    
-    public int getTotalRequest(){
-        int result = 0;
+// ------------------------------------------------------------------------------------------------------------------    
+    public int getTotalUser(){
+        int result = 1;
         try{
-            
+            String sql = "SELECT * FROM data_user";
+            while(this.exec(sql).next()){
+                ++result;
+            }
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,e.getMessage());
+            result = 0;
         }
         return result;
     }
+// ------------------------------------------------------------------------------------------------------------------
 }

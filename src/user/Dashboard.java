@@ -195,7 +195,6 @@ public class Dashboard extends javax.swing.JFrame {
         lblAlamat = new javax.swing.JLabel();
         lblEmail = new javax.swing.JLabel();
         lblStatus = new javax.swing.JLabel();
-        lblJumlahPinjaman = new javax.swing.JLabel();
         jPanel_request = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -222,6 +221,7 @@ public class Dashboard extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Dashboard");
         setBackground(new java.awt.Color(153, 204, 255));
         setForeground(new java.awt.Color(204, 255, 255));
         setName("Dashboard"); // NOI18N
@@ -452,8 +452,10 @@ public class Dashboard extends javax.swing.JFrame {
         lblJumlahPinjaman2.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         lblJumlahPinjaman2.setForeground(new java.awt.Color(255, 255, 255));
 
+        lblNama.setBackground(new java.awt.Color(249, 249, 249));
         lblNama.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
         lblNama.setForeground(new java.awt.Color(255, 255, 255));
+        lblNama.setLabelFor(lblNama2);
         lblNama.setText("Nama");
 
         lblNoHP.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
@@ -472,10 +474,6 @@ public class Dashboard extends javax.swing.JFrame {
         lblStatus.setForeground(new java.awt.Color(255, 255, 255));
         lblStatus.setText("Status");
 
-        lblJumlahPinjaman.setFont(new java.awt.Font("Segoe UI Symbol", 1, 18)); // NOI18N
-        lblJumlahPinjaman.setForeground(new java.awt.Color(255, 255, 255));
-        lblJumlahPinjaman.setText("Pinjaman");
-
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -490,8 +488,7 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addComponent(lblJumlahPinjaman2, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblJumlahPinjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(lblNama2, javax.swing.GroupLayout.DEFAULT_SIZE, 197, Short.MAX_VALUE)
@@ -534,9 +531,7 @@ public class Dashboard extends javax.swing.JFrame {
                     .addComponent(lblStatus2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblJumlahPinjaman2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lblJumlahPinjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(lblJumlahPinjaman2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(79, 79, 79))
         );
 
@@ -550,9 +545,7 @@ public class Dashboard extends javax.swing.JFrame {
         );
         jPanel_userLayout.setVerticalGroup(
             jPanel_userLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_userLayout.createSequentialGroup()
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 430, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         jPanel_request.setBackground(new java.awt.Color(204, 204, 255));
@@ -608,6 +601,7 @@ public class Dashboard extends javax.swing.JFrame {
 
         tgl_kembali.setDateFormatString("yyyy-MM-dd");
 
+        jButton1.setBackground(new java.awt.Color(249, 249, 249));
         jButton1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Request");
@@ -686,10 +680,13 @@ public class Dashboard extends javax.swing.JFrame {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(tgl_pinjam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(41, 41, 41)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(tgl_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(tgl_kembali, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(fld_jumlah, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -964,7 +961,6 @@ public class Dashboard extends javax.swing.JFrame {
     private javax.swing.JLabel lblAlamat2;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JLabel lblEmail2;
-    private javax.swing.JLabel lblJumlahPinjaman;
     private javax.swing.JLabel lblJumlahPinjaman2;
     private javax.swing.JLabel lblNama;
     private javax.swing.JLabel lblNama2;

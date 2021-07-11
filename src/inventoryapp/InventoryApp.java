@@ -16,6 +16,7 @@ public class InventoryApp {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        String welcome = "Hello world!";
     }
     
 }
