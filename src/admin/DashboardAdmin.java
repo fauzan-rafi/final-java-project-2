@@ -410,7 +410,7 @@ public class DashboardAdmin extends javax.swing.JFrame {
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(fld_req, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
                         .addGroup(jPanel_dashboardLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel19, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(fld_total, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -606,6 +606,11 @@ public class DashboardAdmin extends javax.swing.JFrame {
         btn_refuse.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btn_refuse.setForeground(new java.awt.Color(255, 255, 255));
         btn_refuse.setText("Refuse");
+        btn_refuse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btn_refuseActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel_requestLayout = new javax.swing.GroupLayout(jPanel_request);
         jPanel_request.setLayout(jPanel_requestLayout);
@@ -926,11 +931,11 @@ public class DashboardAdmin extends javax.swing.JFrame {
                 .addGap(0, 3, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel_menu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel_dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(jPanel_dashboard, javax.swing.GroupLayout.DEFAULT_SIZE, 459, Short.MAX_VALUE)))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel_user, javax.swing.GroupLayout.PREFERRED_SIZE, 462, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addComponent(jPanel_request, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel_request, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 462, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addComponent(jPanel_item, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1004,6 +1009,16 @@ public class DashboardAdmin extends javax.swing.JFrame {
         }
         barang.barangTableAdmin(jTable1);
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btn_refuseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_refuseActionPerformed
+        // TODO add your handling code here:
+        int idTransaksi = Integer.parseInt(fld_idTransaksi.getText());
+        transaksi.refuseReq(idTransaksi);
+        fld_idTransaksi.setText("");
+        transaksi.showNewRequest(table_newRequest);
+        transaksi.showRequest(table_request);
+        barang.barangTableAdmin(jTable1);
+    }//GEN-LAST:event_btn_refuseActionPerformed
 
     /**
      * @param args the command line arguments

@@ -156,17 +156,28 @@ public class Transaksi extends DatabaseModel{
         }
         return no;
     }
-// ------------------------------------------------------------------------------------------------------------------
+// ------------------------------------------------------------------------------------------------------------------ 
     public void approveReq(int idTransaksi){
-        String status = "Approve";
-        String sql = "UPDATE transaksi SET status_pinjaman = "+"'"+status+"'" +" WHERE transaksi.id_transaksi="+"'"+idTransaksi+"'";
+        String data = "status_pinjaman = 'Approve'";
+        String table = "transaksi";
+        String param = "id_transaksi";
         try{
-            java.sql.Connection conn=(Connection)config.configDB();
-            java.sql.Statement stm=conn.createStatement();
-            int res = stm.executeUpdate(sql);
-            JOptionPane.showMessageDialog(null, "Request berhasil di approve");
+            if(editData(idTransaksi,table,data,param))
+                JOptionPane.showMessageDialog(null, "Request berhasil di approve");
         }catch (Exception e){
             JOptionPane.showMessageDialog(null, "Request gagal di approve Error: "+e.getMessage());
+        }
+    }
+// ------------------------------------------------------------------------------------------------------------------ 
+    public void refuseReq(int idTransaksi){
+        String data = "status_pinjaman = 'Reject'";
+        String table = "transaksi";
+        String param = "id_transaksi";
+        try{
+            if(editData(idTransaksi,table,data,param))
+                JOptionPane.showMessageDialog(null, "Request berhasil di Tolak");
+        }catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Request gagal di proses Error: "+e.getMessage());
         }
     }
 }

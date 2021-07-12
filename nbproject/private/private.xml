@@ -5,6 +5,11 @@
         <group>
             <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/inventoryapp/Register.java</file>
             <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/config/Config.java</file>
+            <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/config/User.java</file>
+            <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/config/Model.java</file>
+            <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/config/Transaksi.java</file>
+            <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/config/Admin.java</file>
+            <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/config/Barang.java</file>
             <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/config/DatabaseModel.java</file>
             <file>file:/D:/rafi/UNY/SEMESTER2/JAVA_PROJECT/InventoryApp/src/inventoryapp/LoginPage.java</file>
         </group>

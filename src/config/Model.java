@@ -65,5 +65,20 @@ public class Model {
         return result;
     }
 // ------------------------------------------------------------------------------------------------------------------
+    public boolean editData(int id,String table,String data,String param){
+        boolean result = false;
+        try{
+            java.sql.Connection conn=(Connection)config.configDB();
+            String sql = "UPDATE "+ table +" SET "+data+" WHERE "+ param +" = ?";
+            java.sql.PreparedStatement pst= conn.prepareStatement(sql);
+            pst.setInt(1,id);
+            pst.executeUpdate();
+            result = true;
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+        return result;
+    }
+// ------------------------------------------------------------------------------------------------------------------
     
 }

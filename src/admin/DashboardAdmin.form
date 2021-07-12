@@ -291,7 +291,7 @@
                                   <Component id="fld_req" alignment="0" max="32767" attributes="0"/>
                                   <Component id="jLabel18" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="31" max="32767" attributes="0"/>
+                              <EmptySpace pref="33" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel19" alignment="0" max="32767" attributes="0"/>
                                   <Component id="fld_total" alignment="0" min="-2" pref="177" max="-2" attributes="0"/>
@@ -910,6 +910,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Refuse"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btn_refuseActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

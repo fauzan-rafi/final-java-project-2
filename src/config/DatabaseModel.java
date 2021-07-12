@@ -127,15 +127,11 @@ public class DatabaseModel extends Model{
                    + "JOIN data_user ON transaksi.id_user = data_user.id_user; ";
             DefaultTableModel model = new DefaultTableModel();
             model.addColumn("No");
-            model.addColumn("No Transaksi");
             model.addColumn("Barang");
             model.addColumn("Pemohon");
             model.addColumn("Jumlah");
             model.addColumn("Keperluan");
-            model.addColumn("Tgl pinjam");
-            model.addColumn("Tgl kembali");
             model.addColumn("Stock");
-            model.addColumn("Status Pinjaman");
             
             int no=0;
         try {
@@ -144,15 +140,11 @@ public class DatabaseModel extends Model{
                 model.addRow(new Object[]
                 {
                  ++no,
-                 res.getString("id_transaksi"),
                  res.getString("nama_brg"),
                  res.getString("nama_user"),
                  res.getString("banyak_pinjaman"),
                  res.getString("keperluan_pinjaman"),
-                 res.getString("tanggal_pinjaman"),
-                 res.getString("tanggal_kembali"),
                  res.getString("jumlah_brg"),
-                 res.getString("status_pinjaman")
                 });
             }
             table.setModel(model);
